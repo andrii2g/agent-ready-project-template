@@ -26,7 +26,6 @@ jobs:
         uses: actions/setup-python@v6.3.0
         with:
           python-version: '3.13'
-          cache: false
       - name: Compile Python tooling
         run: python -m compileall -q scripts tests .claude/hooks
       - name: Run template tooling tests
