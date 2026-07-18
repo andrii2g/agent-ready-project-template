@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "defaultMode": "default",
+    "allow": [
+      "Bash(git status)",
+      "Bash(git status *)",
+      "Bash(git diff)",
+      "Bash(git diff *)",
+      "Bash(git log)",
+      "Bash(git log *)",
+      "Bash(python scripts/verify_repository.py)",
+      "Bash(python scripts/verify_repository.py *)",
+      "Bash(python scripts/sync_agent_skills.py --check)"
+    ],
+    "ask": [
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(gh pr create *)",
+      "Bash(gh pr merge *)",
+      "Bash(gh release *)",
+      "Bash(pip install *)",
+      "Bash(python -m pip install *)",
+      "Bash(uv add *)",
+      "Bash(npm install)",
+      "Bash(npm install *)",
+      "Bash(npm update *)",
+      "Bash(pnpm add *)",
+      "Bash(yarn add *)",
+      "Bash(go get *)",
+      "Bash(cargo add *)",
+      "Bash(docker *)",
+      "Bash(terraform *)",
+      "Bash(tofu *)",
+      "Bash(kubectl *)",
+      "Edit(/AGENTS.md)",
+      "Edit(/CLAUDE.md)",
+      "Edit(/.agents/**)",
+      "Edit(/.claude/**)",
+      "Edit(/.codex/**)",
+      "Edit(/.github/workflows/**)",
+      "Edit(/.mcp.json)",
+      "Write(/AGENTS.md)",
+      "Write(/CLAUDE.md)",
+      "Write(/.agents/**)",
+      "Write(/.claude/**)",
+      "Write(/.codex/**)",
+      "Write(/.github/workflows/**)",
+      "Write(/.mcp.json)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.local)",
+      "Read(./.env.*.local)",
+      "Read(./**/.env)",
+      "Read(./**/.env.local)",
+      "Read(./**/.env.*.local)",
+      "Read(./secrets/**)",
+      "Read(./credentials/**)",
+      "Read(./**/*.pem)",
+      "Read(./**/*.key)",
+      "Bash(git push * --force *)",
+      "Bash(git push * --force-with-lease *)",
+      "Bash(gh repo delete *)",
+      "Bash(rm -rf /*)",
+      "Bash(rm -rf ~*)",
+      "Bash(mkfs *)",
+      "Bash(dd if=*)"
+    ]
+  },
+  "disableBypassPermissionsMode": "disable",
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": false,
+    "autoAllowBashIfSandboxed": false,
+    "filesystem": {
+      "denyRead": [
+        "./.env",
+        "./.env.local",
+        "./secrets",
+        "./credentials",
+        "~/.ssh",
+        "~/.aws/credentials",
+        "~/.config/gcloud"
+      ]
+    }
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python",
+            "args": [
+              "${CLAUDE_PROJECT_DIR}/.claude/hooks/guard_command.py"
+            ],
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Read|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python",
+            "args": [
+              "${CLAUDE_PROJECT_DIR}/.claude/hooks/protect_sensitive_files.py"
+            ],
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  },
+  "autoMemoryEnabled": false
+}

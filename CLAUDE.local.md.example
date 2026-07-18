@@ -1,0 +1,12 @@
+# Personal Claude Code instructions
+
+This file is an example only. Copy it to `CLAUDE.local.md` for private,
+project-specific preferences. The actual file is ignored by Git.
+
+Examples of appropriate local content:
+
+- preferred local test fixtures or sandbox URLs;
+- machine-specific commands;
+- personal explanation or review preferences.
+
+Do not store credentials, tokens, private keys, or production data here.

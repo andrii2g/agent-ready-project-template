@@ -1,0 +1,17 @@
+{
+  "name": "go",
+  "description": "Go module and CLI baseline using gofmt, go vet, race-enabled tests, and go build.",
+  "commands": {
+    "setup": "go mod tidy",
+    "format": "python scripts/check_gofmt.py",
+    "lint": "go vet ./...",
+    "typecheck": "go vet ./...",
+    "test": "go test -race -cover ./...",
+    "build": "go build ./...",
+    "verify": "python scripts/verify_repository.py && python scripts/check_gofmt.py && go vet ./... && go test -race -cover ./... && go build ./..."
+  },
+  "overwrites": [
+    ".github/workflows/ci.yml",
+    ".github/dependabot.yml"
+  ]
+}

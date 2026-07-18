@@ -1,0 +1,17 @@
+{
+  "name": "rust",
+  "description": "Rust library/CLI baseline using Cargo, rustfmt, Clippy, tests, and locked builds.",
+  "commands": {
+    "setup": "cargo fetch",
+    "format": "cargo fmt --all -- --check",
+    "lint": "cargo clippy --all-targets --all-features -- -D warnings",
+    "typecheck": "cargo check --all-targets --all-features",
+    "test": "cargo test --all-features",
+    "build": "cargo build --all-features --locked",
+    "verify": "python scripts/verify_repository.py && cargo fmt --all -- --check && cargo clippy --all-targets --all-features -- -D warnings && cargo check --all-targets --all-features && cargo test --all-features && cargo build --all-features --locked"
+  },
+  "overwrites": [
+    ".github/workflows/ci.yml",
+    ".github/dependabot.yml"
+  ]
+}

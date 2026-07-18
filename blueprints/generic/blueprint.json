@@ -1,0 +1,17 @@
+{
+  "name": "generic",
+  "description": "Language-neutral baseline for documentation, hardware, research, infrastructure, and mixed projects.",
+  "commands": {
+    "setup": "python --version",
+    "format": "python scripts/verify_repository.py",
+    "lint": "python scripts/verify_repository.py",
+    "typecheck": "python scripts/verify_repository.py",
+    "test": "python -m unittest discover -s tests -p 'test_*.py' -v",
+    "build": "python scripts/verify_repository.py",
+    "verify": "python scripts/verify_repository.py && python -m unittest discover -s tests -p 'test_*.py' -v"
+  },
+  "overwrites": [
+    ".github/workflows/ci.yml",
+    ".github/dependabot.yml"
+  ]
+}

@@ -1,0 +1,15 @@
+* @{{OWNER}}
+
+# Agent governance and repository policy
+/AGENTS.md @{{OWNER}}
+/CLAUDE.md @{{OWNER}}
+/.agents/ @{{OWNER}}
+/.codex/ @{{OWNER}}
+/.claude/ @{{OWNER}}
+/.mcp.json @{{OWNER}}
+/.github/workflows/ @{{OWNER}}
+/scripts/verify_repository.py @{{OWNER}}
+/scripts/configure_github.py @{{OWNER}}
+/ops/github/ @{{OWNER}}
+/PROJECT.md @{{OWNER}}
+/docs/adr/ @{{OWNER}}

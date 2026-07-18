@@ -1,0 +1,31 @@
+labels:
+  - name: agent-task
+    color: "5319e7"
+    description: Bounded task prepared for agent-assisted implementation
+  - name: needs-triage
+    color: "d4c5f9"
+    description: Requires maintainer classification and scope review
+  - name: bug
+    color: "d73a4a"
+    description: Incorrect or unexpected behavior
+  - name: enhancement
+    color: "a2eeef"
+    description: New or improved capability
+  - name: documentation
+    color: "0075ca"
+    description: Documentation-only change
+  - name: maintenance
+    color: "cfd3d7"
+    description: Internal maintenance without intended behavior change
+  - name: dependencies
+    color: "0366d6"
+    description: Dependency update or dependency policy
+  - name: automation
+    color: "1d76db"
+    description: Automated repository maintenance
+  - name: security
+    color: "b60205"
+    description: Security-sensitive work requiring careful handling
+  - name: breaking-change
+    color: "b60205"
+    description: Intentional backward-incompatible change

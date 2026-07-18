@@ -1,0 +1,17 @@
+{
+  "name": "python",
+  "description": "Python library/CLI baseline using pyproject.toml, Ruff, mypy, pytest, and build.",
+  "commands": {
+    "setup": "python -m pip install -e \".[dev]\"",
+    "format": "python -m ruff format --check .",
+    "lint": "python -m ruff check .",
+    "typecheck": "python -m mypy src",
+    "test": "python -m pytest",
+    "build": "python -m build",
+    "verify": "python scripts/verify_repository.py && python -m ruff format --check . && python -m ruff check . && python -m mypy src && python -m pytest && python -m build"
+  },
+  "overwrites": [
+    ".github/workflows/ci.yml",
+    ".github/dependabot.yml"
+  ]
+}

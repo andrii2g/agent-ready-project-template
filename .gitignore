@@ -1,0 +1,50 @@
+# Local agent settings and memory
+.claude/settings.local.json
+CLAUDE.local.md
+.claude/agent-memory-local/
+
+# Secrets and environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
+# Node
+node_modules/
+coverage/
+.npm/
+.pnpm-store/
+
+# Go
+bin/
+
+# Rust
+target/
+
+# Editors and operating systems
+.vscode/settings.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Generated reports
+.repository-verification.json

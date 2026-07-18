@@ -1,0 +1,19 @@
+[package]
+name = "{{PROJECT_SLUG}}"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "{{PROJECT_DESCRIPTION}}"
+license-file = "LICENSE"
+authors = ["{{AUTHOR_NAME}}"]
+repository = "https://github.com/{{OWNER}}/{{PROJECT_SLUG}}"
+publish = false
+
+[dependencies]
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "deny"
+pedantic = "warn"

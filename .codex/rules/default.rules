@@ -1,0 +1,74 @@
+# Conservative project rules for commands requested outside the Codex sandbox.
+# Rules are an additional guardrail; they do not replace sandboxing or review.
+
+prefix_rule(
+    pattern = ["git", "push"],
+    decision = "prompt",
+    justification = "Publishing repository changes is a human-controlled operation.",
+)
+
+prefix_rule(
+    pattern = ["git", "reset", "--hard"],
+    decision = "prompt",
+    justification = "A hard reset can irreversibly discard uncommitted work.",
+)
+
+prefix_rule(
+    pattern = ["git", "clean"],
+    decision = "prompt",
+    justification = "Git clean can permanently delete untracked files.",
+)
+
+prefix_rule(
+    pattern = ["rm", ["-rf", "-fr"]],
+    decision = "prompt",
+    justification = "Recursive forced deletion requires explicit approval.",
+)
+
+prefix_rule(
+    pattern = ["sudo"],
+    decision = "prompt",
+    justification = "Privileged commands require explicit approval.",
+)
+
+prefix_rule(
+    pattern = ["gh", "pr", "merge"],
+    decision = "prompt",
+    justification = "Pull request merging is a human-controlled operation.",
+)
+
+prefix_rule(
+    pattern = ["gh", "release", ["create", "delete"]],
+    decision = "prompt",
+    justification = "Release publication and deletion require explicit approval.",
+)
+
+prefix_rule(
+    pattern = ["gh", "repo", "delete"],
+    decision = "forbidden",
+    justification = "Repository deletion must be performed manually outside the agent workflow.",
+)
+
+prefix_rule(
+    pattern = ["terraform", "destroy"],
+    decision = "prompt",
+    justification = "Infrastructure destruction requires a reviewed plan and explicit approval.",
+)
+
+prefix_rule(
+    pattern = ["tofu", "destroy"],
+    decision = "prompt",
+    justification = "Infrastructure destruction requires a reviewed plan and explicit approval.",
+)
+
+prefix_rule(
+    pattern = ["kubectl", "delete"],
+    decision = "prompt",
+    justification = "Kubernetes deletion may affect live environments.",
+)
+
+prefix_rule(
+    pattern = ["docker", "system", "prune"],
+    decision = "prompt",
+    justification = "Docker pruning can delete containers, images, networks, and caches.",
+)

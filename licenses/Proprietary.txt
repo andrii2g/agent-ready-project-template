@@ -1,0 +1,6 @@
+Copyright (c) {{YEAR}} {{AUTHOR_NAME}}. All rights reserved.
+
+This source code and its associated documentation are proprietary and
+confidential. No permission is granted to use, copy, modify, distribute, or
+disclose this material except under a separate written agreement with the
+copyright holder.
